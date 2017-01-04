@@ -45,7 +45,7 @@ curl -d type=json&text=(ここにテキスト) http://localhost:5000/
 
 1. Python3(及びpip), MeCab, pytermextractのインストールします。
 1. `git clone` などでファイル一式をダウンロードします。
-1. 'cd keyword-exraction-webservice'
+1. `cd keyword-exraction-webservice`
 1. `pip install .`
 1. `export FLASK_APP=kews`
 1. `flask run`
