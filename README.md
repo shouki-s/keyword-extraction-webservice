@@ -2,7 +2,7 @@
 
 A very simple keyword extraction web service for Japanese language, using MeCab and pytermextract.
 
-MeCabとpytermextracを使用した、超低機能なキーワード抽出Webサービスです。というか、pytermextractの簡単なラッパーです。TermExtractを使いたかったのですが、JavaからPerlかPythonを呼ぶのが面倒だったので作りました。
+MeCabとpytermextracを使用した、超低機能なキーワード抽出Webサービスです。というか、pytermextractの簡単なラッパーです。TermExtractを使いたかったのですが、JavaからPerlやPythonを呼ぶのが面倒だったので作りました。
 
 ## Requirements
 
@@ -25,6 +25,8 @@ Python3(及びpip), MeCab, pytermextractのインストール後、
 pip install -r packages_requirements.txt
 ```
 
+で必要なモジュールをインストールします。
+
 ## Get Started
 
 `git clone` して、 kews.py を実行してください。ウェブサーバーが立ち上がります。
@@ -41,7 +43,7 @@ curl -d type=json&text=(ここにテキスト) http://localhost:5000/
 実際の使い方としては、マイクロサービス的に呼び出すことを想定しています。
 
 ## API
-ルート(/)が唯一のリソースです。以下2つのパラメーターのみサポートしています。
+ルート(/)が唯一のエンドポイントです。メソッドはPOSTです。以下2つのパラメーターのみサポートしています。
 
 ### type
 
@@ -50,6 +52,11 @@ curl -d type=json&text=(ここにテキスト) http://localhost:5000/
 ### text
 
 キーワード抽出対象のテキストを指定します。
+
+## TODO
+
+- MeCab以外の解析器への対応
+- store_df, store_lrへの対応
 
 ## LICENSE
 
