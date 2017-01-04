@@ -47,8 +47,8 @@ curl -d type=json&text=(ここにテキスト) http://localhost:5000/
 1. `git clone` などでファイル一式をダウンロードします。
 1. 'cd keyword-exraction-webservice'
 1. `pip install .`
-1. 'export FLASK_APP=kews'
-1. 'flask run'
+1. `export FLASK_APP=kews`
+1. `flask run`
 
 ## API
 ルート(/)が唯一のエンドポイントです。メソッドはPOSTです。以下2つのパラメーターのみサポートしています。
