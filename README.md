@@ -19,17 +19,13 @@ pytermextractはPyPIに登録されていないため、pipとは別にインス
 
 ## Installation
 
-Python3(及びpip), MeCab, pytermextractのインストール後、
-
-```
-pip install -r packages_requirements.txt
-```
-
-で必要なモジュールをインストールします。
+1. Python3(及びpip), MeCab, pytermextractのインストールします。
+1. `git clone` などでファイル一式をダウンロードします。
+1. `pip install -r packages_requirements.txt` で必要なモジュールをインストールします。
 
 ## Get Started
 
-`git clone` して、 kews.py を実行してください。ウェブサーバーが立ち上がります。
+kews.py を実行してください。ウェブサーバーが立ち上がります。
 
 http://localhost:5000/ にアクセスして、テキストを入力して試すことができます。
 出力形式は html か json のどちらかを選択できます。
