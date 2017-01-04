@@ -1,6 +1,6 @@
-# keyword-exraction-webservice
+# keyword-exraction-webservice (kews)
 
-A very simple keyword extraction web service for Japanese language, using MeCab and pytermextract.
+A very simple Keyword Extraction Web Service for Japanese language, using MeCab and pytermextract.
 
 MeCabとpytermextracを使用した、超低機能なキーワード抽出Webサービスです。というか、pytermextractの簡単なラッパーです。TermExtractを使いたかったのですが、JavaからPerlやPythonを呼ぶのが面倒だったので作りました。
 
@@ -37,6 +37,18 @@ curl -d type=json&text=(ここにテキスト) http://localhost:5000/
 ```
 
 実際の使い方としては、マイクロサービス的に呼び出すことを想定しています。
+
+## Alternative Installation & Usage
+
+よりFlaskアプリっぽい方法で、インストールしてサーバー起動することもできます。
+ただし、現在のところkewsはDB等に依存していないので、この方法をとるメリットはあまりありません。
+
+1. Python3(及びpip), MeCab, pytermextractのインストールします。
+1. `git clone` などでファイル一式をダウンロードします。
+1. 'cd keyword-exraction-webservice'
+1. `pip install .`
+1. 'export FLASK_APP=kews'
+1. 'flask run'
 
 ## API
 ルート(/)が唯一のエンドポイントです。メソッドはPOSTです。以下2つのパラメーターのみサポートしています。
