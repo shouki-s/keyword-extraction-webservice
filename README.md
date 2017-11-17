@@ -72,4 +72,4 @@ curl -d type=json&text=(ここにテキスト) http://localhost:5000/
 
 ## Author
 
-[nalls](https://github.com/nalls)
+[Shouki SAKAMOTO](https://github.com/shouki-s)
