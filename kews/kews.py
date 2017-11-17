@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""keyword-exraction-webservice (kews)"""
+
 import collections
 from pprint import pprint
 
@@ -9,11 +11,12 @@ from termextract import core, mecab
 
 DEFAULT_TEXT = ''
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@APP.route('/', methods=['GET', 'POST'])
 def index():
+    """Return index page."""
     response = {}
     response['text'] = request.form.get('text', DEFAULT_TEXT)
     response['keyphrases'] = extract(response['text'])
@@ -28,16 +31,17 @@ def index():
 
     if result_type == 'json':
         return jsonify(response)
-    else:
-        return render_template('index.html', response=response)
+
+    return render_template('index.html', response=response)
 
 
 def extract(text):
+    """Extract keywords from text."""
     print('[TEXT]')
     print(text)
 
-    m = Tagger('mecabrc')
-    tagged_text = m.parse(text)
+    mecab_tagger = Tagger('mecabrc')
+    tagged_text = mecab_tagger.parse(text)
     print('[TaggedText(Mecab)]')
     print(tagged_text)
 
@@ -45,12 +49,12 @@ def extract(text):
     print('[Frequency]')
     pprint(frequency)
 
-    LR = core.score_lr(frequency, ignore_words=mecab.IGNORE_WORDS,
-                       lr_mode=1, average_rate=1)
+    score_lr = core.score_lr(frequency, ignore_words=mecab.IGNORE_WORDS,
+                             lr_mode=1, average_rate=1)
     print('[LR]')
-    pprint(LR)
+    pprint(score_lr)
 
-    term_imp = core.term_importance(frequency, LR)
+    term_imp = core.term_importance(frequency, score_lr)
     print('[Frequency+LR]')
     data_collection = collections.Counter(term_imp)
     for cmp_noun, value in data_collection.most_common():
@@ -60,5 +64,5 @@ def extract(text):
 
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run(host='0.0.0.0')
+    APP.debug = True
+    APP.run(host='0.0.0.0')
