@@ -2,7 +2,7 @@
 
 A very simple Keyword Extraction Web Service for Japanese language, using MeCab and pytermextract.
 
-MeCabとpytermextracを使用した、超低機能なキーワード抽出Webサービスです。というか、pytermextractの簡単なラッパーです。TermExtractを使いたかったのですが、JavaからPerlやPythonを呼ぶのが面倒だったので作りました。
+MeCabとpytermextracを使用した、超低機能なキーワード抽出Webサービスです。というか、pytermextractの簡単なラッパーです。TermExtractを使いたかったのですがPerlやPythonを呼ぶのが面倒だったので作りました。
 
 ## Requirements
 
